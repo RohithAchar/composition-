@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>COMPOSITION</title>
+    <script type="text/javascript" charset="utf-8">
+    function draw(){
+      var cp=['source-over','source-in','source-out','source-atop', 'destination-over','destination-in','destination-top','destination-atop','lighter','darker','copy','xor'];
+      for(var i=0;i<cp.length;i++){
+        var label=document.createTextNode(cp[i]);
+        document.getElementById('lab'+i).appendChild(label);
+        var canvas=document.getElementById('box'+i).getContext('2d');
+        canvas.beginPath();
+        canvas.fillRect(15,15,70,70);
+        canvas.fillStyle="red";
+        canvas.globalCompositeOperation=cp[i];
+        canvas.fill();
+        canvas.beginPath();
+        canvas.arc(75,75,35,0,Math.PI*2,true);
+        canvas.fillStyle="blue";
+        canvas.fill();
+      }
+    }
+    </script>
+  </head>
+  <body onload="draw();">
+    <table border="1px" align="center">
+      <tr>
+        <td>
+        <canvas id="box0" height="125"width="125"></canvas><br />
+        <label id="lab0"></label>
+        </td>
+        <td>
+        <canvas id="box1" height="125"width="125"></canvas><br />
+        <label id="lab1"></label>
+        </td>
+        <td>
+        <canvas id="box2" height="125"width="125"></canvas><br />
+        <label id="lab2"></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <canvas id="box3" height="125"width="125"></canvas><br />
+        <label id="lab3"></label>
+        </td>
+        <td>
+        <canvas id="box4" height="125"width="125"></canvas><br />
+        <label id="lab4"></label>
+        </td>
+        <td>
+        <canvas id="box5" height="125"width="125"></canvas><br />
+        <label id="lab5"></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <canvas id="box6" height="125"width="125"></canvas><br />
+        <label id="lab6"></label>
+        </td>
+        <td>
+        <canvas id="box7" height="125"width="125"></canvas><br />
+        <label id="lab7"></label>
+        </td>
+        <td>
+        <canvas id="box8" height="125"width="125"></canvas><br />
+        <label id="lab8"></label>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
